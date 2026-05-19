@@ -1,12 +1,15 @@
 #ifndef MENU_H
 #define MENU_H
-
+#include "product.h"
 
 class menu
 {
     public:
-        menu();
+        product p1;
+        menu(product p_producto);
         virtual ~menu();
+
+    void mostrarOpcciones();
 
     protected:
 
