@@ -7,7 +7,7 @@ private:
     char* nombre;
     double precio;
 public:
-    producto(const char * n , double e){
+    product(const char * n , double e){
         nombre = new char [30];
 
         int i = 0;
@@ -19,7 +19,7 @@ public:
         precio=e;
     }
 
-    ~producto(){
+    ~product(){
         delete [] nombre;
     }
 
