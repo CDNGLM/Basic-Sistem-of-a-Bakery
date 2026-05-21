@@ -2,19 +2,38 @@
 #define PRODUCT_H
 
 
-class product
-{
-    public:
-        double price;
-        int quantity;
-        product(double p_price, int quantity_p);
-        virtual ~product();
+class product{
+private:
+    char* nombre;
+    double precio;
+public:
+    producto(const char * n , double e){
+        nombre = new char [30];
 
-        void show_product();
+        int i = 0;
+        while(n[i]!= '\0'){
+            nombre[i]= n[i];
+            i++;
+        }
+        nombre[i]='\0';
+        precio=e;
+    }
 
-    protected:
+    ~producto(){
+        delete [] nombre;
+    }
 
-    private:
+    void mostrar(){
+     int i = 0;
+        cout<<"nombre: "<<nombre<<endl;
+        if (precio >0){
+            cout<<"precio: "<<precio<<endl;
+        }
+        else {}
+
+    }
+
+
 };
 
 #endif // PRODUCT_H
