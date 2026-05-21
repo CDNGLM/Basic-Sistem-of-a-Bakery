@@ -1,5 +1,6 @@
 #include <iostream>
 #include "menu.h"
+#include "product.h"
 
 using namespace std;
 
