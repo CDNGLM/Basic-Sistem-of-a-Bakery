@@ -7,12 +7,13 @@ private:
     
     double precio;
     int stock;
-
+    int indice;
 public:
     char* nombre;
     int tamanio_n;
     
-    cProduct(const char * n = nullptr , double e = 0, int s = 0);
+    
+    cProduct(const char * n = nullptr , double e = 0, int s = 0, int ind = 0);
     cProduct(const cProduct &otro);
     //cProduct();
     ~cProduct();
@@ -24,6 +25,8 @@ public:
     void setPrice(double precio);
     int getStock();
     double getPrice();
+    int getIndice();
+
 };
 
 #endif // PRODUCT_HPP
