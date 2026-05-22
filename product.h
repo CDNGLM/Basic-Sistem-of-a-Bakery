@@ -1,39 +1,69 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 
+class producto{
 
-class product{
 private:
-    char* nombre;
-    double precio;
+
+    float precio;
+    int stock;
+
 public:
-    product(const char * n , double e){
-        nombre = new char [30];
+    char nombre
+
+    producto(const char* n = "", float p = 0, int s = 0){
 
         int i = 0;
-        while(n[i]!= '\0'){
-            nombre[i]= n[i];
+
+        while(n[i] != '\0'){
+
+            nombre[i] = n[i];
             i++;
         }
-        nombre[i]='\0';
-        precio=e;
-    }
 
-    ~product(){
-        delete [] nombre;
-    }
+        nombre[i] = '\0';
 
-    void mostrar(){
-     int i = 0;
-        cout<<"nombre: "<<nombre<<endl;
-        if (precio >0){
-            cout<<"precio: "<<precio<<endl;
-        }
-        else {}
-
+        precio = p;
+        stock = s;
     }
 
 
+    void setPrecio(float p){
+
+        precio = p;
+    }
+
+    float getPrecio(){
+
+        return precio;
+    }
+
+
+
+
+    void setStock(int s){
+
+        stock = s;
+    }
+
+    int getStock(){
+
+        return stock;
+    }
+
+    // Reducir stock
+    void reducirStock(int cantidad){
+
+        stock -= cantidad;
+    }
+
+
+    void mostrarInfo(){
+
+        cout << "Nombre : " << nombre << endl;
+        cout << "Precio : " << precio << endl;
+        cout << "Stock  : " << stock << endl;
+    }
 };
 
 #endif // PRODUCT_H
