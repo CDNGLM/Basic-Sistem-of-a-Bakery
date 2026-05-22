@@ -2,25 +2,30 @@
 #include "producto.hpp"
 using namespace std;
 
-cProduct::cProduct(const char * n , double e, int s)
+cProduct::cProduct(const char * n , double e, int s, int ind)
 {
     nombre = new char [30];
 
         int i = 0;
         precio = e;
         stock = s;
-        if (n != nullptr) {
-        int i = 0;
-        while(n[i] != '\0'){
-            nombre[i] = n[i];
-            i++;
+        indice = ind;
+        if (n != nullptr) 
+        {
+            int i = 0;
+            while(n[i] != '\0')
+            {
+                nombre[i] = n[i];
+                i++;
+            }
+            nombre[i] = '\0';
+            tamanio_n = i;
+        } 
+        else   
+        {
+            nombre[0] = '\0';
+            tamanio_n = 0;
         }
-        nombre[i] = '\0';
-        tamanio_n = i;
-    } else {
-        nombre[0] = '\0';
-        tamanio_n = 0;
-    }
 }
 
 cProduct::cProduct(const cProduct &otro)
@@ -96,4 +101,9 @@ int cProduct::getStock()
 double cProduct::getPrice()
 {
     return precio;
+}
+
+int cProduct::getIndice()
+{
+    return indice;
 }
