@@ -18,30 +18,39 @@ cAlmacen::~cAlmacen()
     total_de_productos = nullptr;
 }
 
-void cAlmacen::buscar_disponibilidad(const char * nombre,  int cantidad)
+cProduct& cAlmacen::buscar_disponibilidad(int indice_prod,  int cantidad)
 {
     for (int i{0}; i<tam_total; i++)
     {
-        int caracteres_iguales = 0;
-        int j = 0;
-        while (nombre[j] != '\0')
-        {
-            if (total_de_productos[i].nombre[j] == nombre[j])
-            {
-                caracteres_iguales++;
-            }
-            else
-            {
-                break;
-            }
-            j++;
-        }
-
-        if ((caracteres_iguales == total_de_productos[i].tamanio_n) && (total_de_productos[i].getStock() >= cantidad))
+        
+        if ((indice_prod == total_de_productos[i].getIndice()) && (total_de_productos[i].getStock() >= cantidad))
         {
             cout<<"Producto Disponible, Continue con la Compra."<<endl;
-            return;
+            total_de_productos[i].reducirStock(cantidad);
+            return total_de_productos[i];
         }
-        
+    }
+    cout<<"Producto no disponible, por favor eliga otro"<<endl;
+    static cProduct p_vacio;
+    return p_vacio;
+}
+
+double cAlmacen::precio_total(int indice, int cantidad)
+{
+    cProduct& prod1 = buscar_disponibilidad(indice, cantidad);
+    if (prod1.getIndice()!= 0)
+    {
+        return prod1.getPrice()*cantidad;
+    }
+    else return 0;
+    
+}
+
+void cAlmacen::imprimir_catalogo()
+{
+    for (int i {0}; i<tam_total; i++)
+    {
+        cout<<i+1<<".- "<<endl;
+        total_de_productos[i].mostrar_producto();
     }
 }
