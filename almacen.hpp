@@ -10,7 +10,9 @@ private:
 public:
     cAlmacen(const cProduct * t_prod = nullptr , int tam = 0);
     ~cAlmacen();
-    void buscar_disponibilidad(const char * nombre,  int cantidad);
+    cProduct& buscar_disponibilidad(int indi,  int cantidad);
+    double precio_total(int indice, int cantidad);
+    void imprimir_catalogo();
 };
 
 #endif //ALMACEN_HPP
