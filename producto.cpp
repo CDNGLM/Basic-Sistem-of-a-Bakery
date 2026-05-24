@@ -34,6 +34,7 @@ cProduct::cProduct(const cProduct &otro)
     precio = otro.precio;
     stock = otro.stock;
     tamanio_n = otro.tamanio_n;
+    indice = otro.indice;
 
     nombre = new char[30];
     
@@ -62,6 +63,7 @@ cProduct& cProduct::operator=(const cProduct &otro)
         precio = otro.precio;
         stock = otro.stock;
         tamanio_n = otro.tamanio_n;
+        indice = otro.indice;
 
         nombre = new char[otro.tamanio_n];
         for (int i = 0; i <= tamanio_n; i++) {
