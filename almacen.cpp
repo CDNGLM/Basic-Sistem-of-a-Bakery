@@ -20,10 +20,11 @@ cAlmacen::~cAlmacen()
 
 cProduct& cAlmacen::buscar_disponibilidad(int indice_prod,  int cantidad)
 {
+    cout<<indice_prod<<endl;
     for (int i{0}; i<tam_total; i++)
     {
-        
-        if ((indice_prod == total_de_productos[i].getIndice()) && (total_de_productos[i].getStock() >= cantidad))
+        cout<<total_de_productos[i].getIndice()<<endl;
+        if ((indice_prod == (total_de_productos[i].getIndice())) && ((total_de_productos[i].getStock()) >= cantidad))
         {
             cout<<"Producto Disponible, Continue con la Compra."<<endl;
             total_de_productos[i].reducirStock(cantidad);
