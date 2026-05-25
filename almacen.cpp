@@ -20,7 +20,6 @@ cAlmacen::~cAlmacen()
 
 cProduct& cAlmacen::buscar_disponibilidad(int indice_prod,  int cantidad)
 {
-    cout<<indice_prod<<endl;
     for (int i{0}; i<tam_total; i++)
     {
         cout<<total_de_productos[i].getIndice()<<endl;
@@ -45,6 +44,19 @@ double cAlmacen::precio_total(int indice, int cantidad)
     }
     else return 0;
     
+}
+
+void cAlmacen::aniadir_stock(int indice, int cantidad)
+{
+    for (int i {0}; i<tam_total; i++)
+    {
+        if (total_de_productos[i].getIndice() == indice)
+        {
+            total_de_productos[i].addStock(cantidad);
+            cout<<"Cantidad aniadida: "<<total_de_productos->getStock()<<endl;
+            break;
+        }
+    }
 }
 
 void cAlmacen::imprimir_catalogo()
