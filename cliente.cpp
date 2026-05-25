@@ -8,6 +8,7 @@ using namespace std;
 
 cCliente::cCliente(const char* nombre)
 {
+    name = new char [30];
     if (nombre != nullptr) 
         {
             int i = 0;
@@ -30,26 +31,12 @@ cCliente::~cCliente()
     name = nullptr;
 }
 
-int cCliente::seleccionarProducto()
-{
-    int a;
-    cout << "\nID del Producto seleccionado: ";
-    cin >> a;
-    return a;
-}
-int cCliente::seleccionarCantidad()
-{
-    int b;
-    cout << "Cantidad que desea llevar: ";
-    cin >> b;
-    return b;
-}
 
-void cCliente::realizarPedidos(cAlmacen almacen)
+void cCliente::realizarPedidos(cAlmacen &almacen)
 {
     almacen.imprimir_catalogo();
     int p_pedido = seleccionarProducto();
     int c_pedido = seleccionarCantidad();
-    almacen.precio_total(p_pedido, c_pedido);
-    
+    cout<<almacen.precio_total(p_pedido, c_pedido)<<endl;
+    almacen.imprimir_catalogo();
 }
