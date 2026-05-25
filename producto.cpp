@@ -100,6 +100,11 @@ int cProduct::getStock()
     return stock;
 }
 
+void cProduct::addStock(int cantidad)
+{
+    stock += cantidad;
+}
+
 double cProduct::getPrice()
 {
     return precio;
