@@ -22,6 +22,7 @@ public:
     void mostrar_producto();
     void reducirStock(int cantidad);
     void setStock(int cantidad);
+    void addStock(int cantidad);
     void setPrice(double precio);
     int getStock();
     double getPrice();
