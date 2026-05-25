@@ -12,6 +12,7 @@ public:
     ~cAlmacen();
     cProduct& buscar_disponibilidad(int indi,  int cantidad);
     double precio_total(int indice, int cantidad);
+    void aniadir_stock(int indice, int cantidad);
     void imprimir_catalogo();
 };
 
